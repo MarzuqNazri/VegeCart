@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17162e">
+  <meta name="description" content="An interactive culinary learning quest with practical kitchen missions.">
+  <title>Culinary Quest — Kitchen Missions</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#" id="brandHome" aria-label="Culinary Quest home">
+      <span class="brand-mark">CQ</span><span>CULINARY <b>QUEST</b></span>
+    </a>
+    <div class="top-actions">
+      <span class="pill" id="levelPill">LEVEL 1 · APPRENTICE</span>
+      <button class="icon-button" id="soundToggle" aria-pressed="false" title="Toggle sound">🔇 <span>Sound off</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section id="homeScreen" class="screen active">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="pulse-dot"></span> INTERACTIVE CULINARY TRAINING</p>
+          <h1>Think like a chef.<br><span class="gradient-text">Master the mission.</span></h1>
+          <p class="hero-lede">Step into three culinary worlds. Sort knife cuts, match techniques, and build a mise en place sequence to earn your chef rank.</p>
+          <div class="hero-stats">
+            <div><strong>3</strong><span>Kitchen missions</span></div>
+            <div><strong>12</strong><span>Hands-on challenges</span></div>
+            <div><strong>∞</strong><span>Untimed learning</span></div>
+          </div>
+          <button class="primary-button" id="startButton">Start your quest <span>→</span></button>
+          <p class="microcopy">No timer. Learning mastery matters more than speed.</p>
+        </div>
+        <div class="hero-art" aria-label="Illustrated culinary kitchen scene">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="floating-card float-card-one"><span>✦</span> SKILL UNLOCKED</div>
+          <div class="floating-card float-card-two"><span>🔥</span> CHEF STREAK</div>
+          <div class="chef-scene">
+            <div class="sun-glow"></div>
+            <div class="shelf shelf-top"><span>🥫</span><span>🫙</span><span>🌿</span></div>
+            <div class="chef-hat">▰<br><span>▰</span></div>
+            <div class="chef-body">👨‍🍳</div>
+            <div class="counter"></div>
+            <div class="cutting-board"><span>🥕</span><span>🔪</span><span>🧅</span></div>
+            <div class="spark spark-a">✦</div><div class="spark spark-b">✧</div><div class="spark spark-c">✦</div>
+          </div>
+          <div class="art-caption"><span class="caption-dot"></span> YOUR NEXT SHIFT STARTS HERE</div>
+        </div>
+      </div>
+      <div class="mission-preview">
+        <div class="section-heading"><div><p class="eyebrow">YOUR TRAINING MAP</p><h2>Three kitchens. Three skill sets.</h2></div><span class="subtle">Unlock each by showing mastery</span></div>
+        <div class="world-cards">
+          <article class="world-card french"><div class="world-icon">🔪</div><div><span class="world-tag">MISSION 01</span><h3>The French Atelier</h3><p>Classical vegetable cuts</p></div><span class="world-arrow">↗</span></article>
+          <article class="world-card italian"><div class="world-icon">🍅</div><div><span class="world-tag">MISSION 02</span><h3>Italian Flavour Lab</h3><p>Ingredients and techniques</p></div><span class="world-arrow">↗</span></article>
+          <article class="world-card malay"><div class="world-icon">🌶️</div><div><span class="world-tag">MISSION 03</span><h3>Malay Heritage Kitchen</h3><p>Mise en place and sequence</p></div><span class="world-arrow">↗</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="gameScreen" class="screen" aria-live="polite">
+      <div class="game-header">
+        <button class="text-button" id="homeButton">← Exit mission</button>
+        <div class="mission-title"><span id="missionEmoji">🔪</span><div><small id="missionLabel">MISSION 01</small><h2 id="missionName">The French Atelier</h2></div></div>
+        <div class="game-score"><small>MASTERY SCORE</small><strong id="scoreDisplay">0%</strong></div>
+      </div>
+      <div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
+      <div class="progress-meta"><span id="progressText">Challenge 1 of 12</span><span id="streakText">✨ Streak: 0</span></div>
+
+      <div class="game-layout">
+        <aside class="mission-sidebar">
+          <div class="chef-avatar">👩‍🍳</div>
+          <p class="sidebar-label">HEAD CHEF'S BRIEF</p>
+          <p id="briefText" class="brief-text">Every cut must be precise.</p>
+          <div class="sidebar-divider"></div>
+          <p class="sidebar-label">YOUR TOOLKIT</p>
+          <div class="tool-list" id="toolList"><span>🔪 Chef's knife</span><span>🪵 Cutting board</span></div>
+          <div class="badge-preview"><span id="badgeIcon">🏅</span><div><strong id="badgeName">Apprentice</strong><small>Current rank</small></div></div>
+        </aside>
+        <section class="challenge-panel">
+          <div class="challenge-top"><span class="challenge-type" id="challengeType">DRAG & DROP</span><span class="no-timer">◷ No timer</span></div>
+          <h2 id="challengeTitle">Sort the cuts</h2>
+          <p id="challengePrompt" class="challenge-prompt">Drag each item to its correct category.</p>
+          <div id="challengeArea" class="challenge-area"></div>
+          <div id="feedbackBox" class="feedback-box" hidden role="status"></div>
+          <div class="challenge-controls">
+            <p id="attemptHint">Try again if you need to. Your learning score rewards first-attempt mastery.</p>
+            <button id="checkButton" class="primary-button">Check my work <span>✓</span></button>
+            <button id="continueButton" class="primary-button" hidden>Continue <span>→</span></button>
+          </div>
+        </section>
+      </div>
+      <div class="bottom-note"><span>✦</span> Precision over pressure. Take your time and learn the why.</div>
+    </section>
+
+    <section id="resultsScreen" class="screen">
+      <div class="results-wrap">
+        <div class="results-medal">🏆</div>
+        <p class="eyebrow">QUEST COMPLETE</p>
+        <h1 id="resultsTitle">Kitchen legend in the making!</h1>
+        <p class="results-lede" id="resultsLede">You completed all kitchen missions.</p>
+        <div class="results-stats">
+          <div><strong id="finalMastery">0%</strong><span>Learning mastery</span></div>
+          <div><strong id="finalCorrect">0/12</strong><span>First-try correct</span></div>
+          <div><strong id="finalBadges">0/3</strong><span>Badges earned</span></div>
+        </div>
+        <div class="results-panel">
+          <h2>Your mission debrief</h2>
+          <div id="missionResults"></div>
+        </div>
+        <div class="results-actions"><button class="primary-button" id="restartButton">Play again ↻</button><button class="secondary-button" id="resultsHomeButton">Back to home</button></div>
+        <p class="microcopy">Your score reflects culinary understanding, not speed or clicking speed.</p>
+      </div>
+    </section>
+  </main>
+  <footer><span>© Culinary Quest · Learning through doing</span><span>Built for browser-based learning</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
