@@ -1,3 +1,4 @@
+[README.md](https://github.com/user-attachments/files/33483450/README.md)
 # Culinary Quest — Interactive Kitchen Missions
 
 A responsive culinary learning game built with plain HTML, CSS and JavaScript. It runs entirely in the browser and can be published with GitHub Pages.
@@ -14,7 +15,7 @@ A responsive culinary learning game built with plain HTML, CSS and JavaScript. I
 2. **Italian Flavour Lab:** match culinary techniques, classify soffritto ingredients and arrange a workflow.
 3. **Malay Heritage Kitchen:** match preparation terminology, organise mise en place and arrange a service-ready sequence.
 
-Each world contains four challenges. The activity types include drag-and-drop (with tap-to-select support), matching, ordering steps and multiple choice. Students can work without a timer. The mastery score counts first-attempt correct challenges; speed does not affect the score. Students can retry incorrect responses and read explanations.
+Each world contains four challenges with varied formats: drag-and-drop sorting, matching, step ordering, single-answer multiple choice, true/false, select-all-that-apply, error diagnosis and professional scenario decisions. The activity types include drag-and-drop (with tap-to-select support), matching, ordering steps and choice-based questions. Students can work without a timer. The mastery score counts first-attempt correct challenges; speed does not affect the score. Students can retry incorrect responses and read explanations.
 
 Sound effects are generated with the Web Audio API. Sound is off by default and must be enabled by the user. No audio files, backend, API keys, build tools or external libraries are required. The optional font import falls back to system fonts if Google Fonts is unavailable.
 
@@ -65,3 +66,12 @@ Keep IDs unique within an activity and preserve the expected fields. When adding
 - [ ] Mission badges, final results, restart and home work.
 - [ ] Sound can be enabled and disabled.
 - [ ] Layout remains usable on desktop and mobile.
+
+
+## Textbook reference and question-writing approach
+
+The question bank contains **originally written questions**, not copied textbook questions or answer keys. Concepts are aligned to topic coverage in Wayne Gisslen, *Professional Cooking*, 9th edition (Wiley, 2018), particularly Chapter 2 (Sanitation and Safety), Chapter 3 (Tools and Equipment), Chapter 6 (Basic Principles of Cooking and Food Science), Chapter 7 (Mise en Place), Chapter 11 (Understanding Vegetables) and Chapter 12 (Cooking Vegetables). The game also includes a small Malay preparation terminology context; confirm local terminology with your course notes and kitchen practice.
+
+Reference: Wayne Gisslen, *Professional Cooking*, 9th ed., Wiley, 2018. Publisher/book overview and contents: https://books.google.com/books/about/Professional_Cooking.html?id=WHJlDwAAQBAJ
+
+This is a teaching aid, not a replacement for the textbook or your institution's food-safety SOPs. Verify chapter-specific details against the copy/edition used in your class.
