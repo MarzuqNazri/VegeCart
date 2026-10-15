@@ -8,52 +8,51 @@
   // Learning content is kept separate from interface logic for easy editing.
   const MISSION_BANK = [
     {
-      id: "french", name: "The French Atelier", emoji: "🔪", brief: "A chef's knife is only as useful as your understanding of the cut. Sort the classical cuts carefully.",
+      id: "french", name: "The French Atelier", emoji: "🔪",
+      brief: "Build reliable knife skills and mise en place habits. The goal is consistent, safe preparation—not just memorising names.",
       tools: ["🔪 Chef's knife", "🪵 Cutting board"], badge: "Precision Pro", badgeIcon: "🔪",
       challenges: [
-        { type:"sort", label:"DRAG & DROP", title:"Sort the classical cuts", prompt:"Place each cut into the correct category. On a phone, tap a cut and then tap its destination.", explanation:"Julienne produces thin matchsticks; brunoise is a fine dice; chiffonade makes thin ribbons from leafy ingredients; rondelle creates round slices.",
-          items:[{id:"julienne",text:"Julienne",cat:"matchstick"},{id:"brunoise",text:"Brunoise",cat:"dice"},{id:"chiffonade",text:"Chiffonade",cat:"ribbons"},{id:"rondelle",text:"Rondelle",cat:"rounds"}],
-          categories:[{id:"matchstick",name:"Thin matchsticks"},{id:"dice",name:"Fine cubes"},{id:"ribbons",name:"Leafy ribbons"},{id:"rounds",name:"Round slices"}] },
-        { type:"match", label:"INGREDIENT MATCH", title:"Choose the best cut", prompt:"Match each ingredient or use case with the most suitable cut.", explanation:"Julienne is commonly used for thin vegetable strips; chiffonade is especially suited to leafy herbs and greens. Cut choice depends on the desired texture, cooking time and presentation.",
-          pairs:[{left:"Carrot garnish with thin strips",options:["Julienne","Chiffonade","Rondelle"],answer:"Julienne"},{left:"Basil leaves cut into ribbons",options:["Brunoise","Chiffonade","Julienne"],answer:"Chiffonade"},{left:"Carrot cut into thin round coins",options:["Rondelle","Brunoise","Chiffonade"],answer:"Rondelle"}] },
-        { type:"sort", label:"VISUAL CLASSIFICATION", title:"Which cut belongs here?", prompt:"Sort each description by the cut it describes.", explanation:"A fine dice is brunoise; matchsticks are julienne; thin leafy ribbons are chiffonade. Uniform cuts promote even cooking and consistent presentation.",
-          items:[{id:"tiny",text:"Very small, even cubes",cat:"brunoise"},{id:"sticks",text:"Long, thin strips",cat:"julienne"},{id:"leaf",text:"Thin ribbons of leaves",cat:"chiffonade"}],
-          categories:[{id:"brunoise",name:"Brunoise"},{id:"julienne",name:"Julienne"},{id:"chiffonade",name:"Chiffonade"}] },
-        { type:"transfer", label:"CHEF'S TRANSFER TEST", title:"Apply the principle", prompt:"A new trainee needs leafy mint ribbons for a garnish. Which cut should they use?", explanation:"Chiffonade is the appropriate cut for thin ribbons of leafy herbs. This is a new example: the aim is to transfer the cut principle to a different ingredient.", options:["Brunoise","Chiffonade","Rondelle","Julienne"],answer:"Chiffonade" }
+        { type:"sort", label:"DRAG & DROP", title:"Knife-cut sorting challenge", prompt:"Drag or tap each culinary term into the description that best fits it.", explanation:"Julienne is a thin matchstick cut; brunoise is a small dice; chiffonade produces ribbons from leafy ingredients; rondelle produces round slices. Consistent cuts support even cooking and presentation.",
+          items:[{id:"julienne",text:"Julienne",cat:"sticks"},{id:"brunoise",text:"Brunoise",cat:"cubes"},{id:"chiffonade",text:"Chiffonade",cat:"ribbons"},{id:"rondelle",text:"Rondelle",cat:"rounds"}],
+          categories:[{id:"sticks",name:"Thin matchsticks"},{id:"cubes",name:"Small, even cubes"},{id:"ribbons",name:"Leafy ribbons"},{id:"rounds",name:"Round slices"}] },
+        { type:"mcq", label:"KNIFE-SKILL SCENARIO", title:"Choose the safest setup", prompt:"You are about to dice an onion. The cutting board keeps sliding on the workbench. What should you do first?", explanation:"Stabilise the board before cutting, for example by placing a damp cloth or suitable non-slip mat underneath. A stable board reduces the risk of the knife slipping. Follow your kitchen's safety procedure.", options:["Cut faster to finish quickly","Stabilise the board with a suitable non-slip layer","Hold the board with the hand closest to the blade","Use the knife tip to pin the board in place"], answer:"Stabilise the board with a suitable non-slip layer" },
+        { type:"truefalse", label:"TRUE OR FALSE", title:"Consistency counts", prompt:"True or false: cutting vegetables into reasonably uniform pieces helps them cook more evenly.", explanation:"True. Uniformity helps pieces cook at a similar rate and supports consistent texture and presentation. Exact cut size should still suit the recipe and cooking method.", options:["True","False"], answer:"True" },
+        { type:"multi", label:"SELECT ALL THAT APPLY", title:"Prepare before the rush", prompt:"Select every action that belongs in good mise en place before a busy service.", explanation:"Mise en place includes reading the recipe or production plan, gathering and preparing ingredients, checking equipment, and organising the workstation. Hand hygiene and a clean station are essential foundations.", options:["Read the recipe and production plan","Gather and prepare ingredients","Check the required equipment","Wait until the pan is hot before finding ingredients","Start cutting without checking the workstation"], answers:["Read the recipe and production plan","Gather and prepare ingredients","Check the required equipment"] }
       ]
     },
     {
-      id: "italian", name: "Italian Flavour Lab", emoji: "🍅", brief: "Build flavour with intention. Match ingredients to the preparation technique and culinary purpose.",
-      tools: ["🧅 Aromatics", "🍅 Fresh produce"], badge: "Flavour Architect", badgeIcon: "🍅",
+      id: "italian", name: "Italian Flavour Lab", emoji: "🍅",
+      brief: "Make decisions based on cooking principles. Match the method to the ingredient, desired texture and result.",
+      tools: ["🧅 Aromatics", "🍳 Pan and utensils"], badge: "Flavour Architect", badgeIcon: "🍅",
       challenges: [
-        { type:"match", label:"TECHNIQUE MATCH", title:"Build the flavour base", prompt:"Match each preparation to the technique or ingredient group it describes.", explanation:"Soffritto is a flavour base made from finely chopped aromatics gently cooked in fat. Ingredient ratios and exact ingredients vary by regional and recipe tradition.",
-          pairs:[{left:"Finely chopped aromatics gently cooked in fat",options:["Soffritto","Chiffonade","Rondelle"],answer:"Soffritto"},{left:"Thin ribbons cut from basil leaves",options:["Brunoise","Chiffonade","Soffritto"],answer:"Chiffonade"},{left:"Small, uniform cubes of vegetables",options:["Brunoise","Soffritto","Julienne"],answer:"Brunoise"}] },
-        { type:"sort", label:"INGREDIENT KNOW-HOW", title:"Sort the mise en place", prompt:"Place each item into the best preparation group for this flavour-base task.", explanation:"Onion, carrot and celery are a common Italian soffritto combination. Garlic may be included in some recipes, but methods and proportions vary. Fresh basil is often added later when its fresh aroma is desired.",
-          items:[{id:"onion",text:"Finely chopped onion",cat:"base"},{id:"carrot",text:"Finely chopped carrot",cat:"base"},{id:"celery",text:"Finely chopped celery",cat:"base"},{id:"basil",text:"Fresh basil ribbons",cat:"finish"}],
-          categories:[{id:"base",name:"Common soffritto base"},{id:"finish",name:"Fresh finishing herb"}] },
-        { type:"sequence", label:"KITCHEN WORKFLOW", title:"Arrange the workflow", prompt:"Reorder the steps into a sensible sequence for preparing a basic soffritto. Use the arrows if dragging is awkward.", explanation:"Prepare and cut the vegetables uniformly first, warm the fat, then cook the aromatics gently until softened. Avoid rushing the process or browning them unintentionally.",
-          steps:[{id:"cook",text:"Cook aromatics gently until softened",order:3},{id:"wash",text:"Wash and inspect the vegetables",order:1},{id:"heat",text:"Warm the oil or other recipe-specified fat",order:2},{id:"cut",text:"Peel if needed and cut evenly",order:2.5}], correct:["wash","cut","heat","cook"] },
-        { type:"transfer", label:"CHEF'S TRANSFER TEST", title:"A new service scenario", prompt:"You are preparing a tomato sauce and want a gentle aromatic base rather than crisp browned vegetables. What should you do?", explanation:"Cook the prepared aromatics gently in fat until softened. The goal here is to develop a flavour base without intentionally crisping or deeply browning the vegetables.", options:["Deep-fry until crisp","Gently cook the chopped aromatics in fat","Add whole vegetables at the end","Char the vegetables until black"],answer:"Gently cook the chopped aromatics in fat" }
+        { type:"match", label:"MATCH THE CONCEPT", title:"Connect method to outcome", prompt:"Match each kitchen situation with the most suitable concept.", explanation:"Soffritto is a common Italian aromatic base gently cooked in fat. Sautéing uses relatively high heat and a small amount of fat for quick cooking. Simmering uses liquid below a full boil. Methods should match the desired result and ingredient.", pairs:[
+          {left:"Chopped onion, carrot and celery gently cooked in fat",options:["Soffritto","Deep-frying","Chiffonade"],answer:"Soffritto"},
+          {left:"Small pieces cooked quickly in a little fat",options:["Sautéing","Simmering","Poaching"],answer:"Sautéing"},
+          {left:"Gentle cooking in liquid below a full boil",options:["Simmering","Broiling","Roasting"],answer:"Simmering"}] },
+        { type:"sequence", label:"PUT IT IN ORDER", title:"Build a flavour base", prompt:"Arrange the steps into a sensible sequence for preparing a basic soffritto.", explanation:"Start with clean, inspected ingredients; prepare the cuts; warm the recipe-specified fat; then cook the aromatics gently until softened. Avoid rushing or unintentionally burning the vegetables.", steps:[
+          {id:"cook",text:"Cook aromatics gently until softened"},{id:"wash",text:"Wash and inspect the vegetables"},{id:"heat",text:"Warm the recipe-specified fat"},{id:"cut",text:"Peel if needed and cut evenly"}], correct:["wash","cut","heat","cook"] },
+        { type:"spot", label:"SPOT THE KITCHEN ERROR", title:"What went wrong?", prompt:"A cook wants tender, lightly softened aromatics for a sauce. They heat the pan until smoking, add the chopped vegetables, then leave them unattended. Identify the main error.", explanation:"The cook has failed to manage heat and monitor the food. For a gentle aromatic base, control the heat and stir or monitor the vegetables so they soften without burning. The correct heat level depends on the recipe and pan.", options:["The vegetables were chopped before cooking","The pan was overheated and the vegetables were left unattended","The cook used a pan","The vegetables were placed in the pan"], answer:"The pan was overheated and the vegetables were left unattended" },
+        { type:"mcq", label:"APPLY COOKING SCIENCE", title:"Choose the appropriate method", prompt:"A tender piece of fish needs gentle cooking in a small amount of liquid to help it retain moisture. Which method is the best match?", explanation:"Shallow poaching uses a relatively small amount of liquid and gentle heat. The method is selected to suit a delicate ingredient; avoid a vigorous boil that may damage its texture.", options:["Shallow poaching","Deep-frying","Broiling","Dry roasting"], answer:"Shallow poaching" }
       ]
     },
     {
-      id: "malay", name: "Malay Heritage Kitchen", emoji: "🌶️", brief: "Good mise en place supports consistency, timing and safe service. Organise your work before the heat is on.",
+      id: "malay", name: "Malay Heritage Kitchen", emoji: "🌶️",
+      brief: "Use sound preparation, food-safety thinking and organised workflow to get a station ready for service.",
       tools: ["🧼 Clean workstation", "🥣 Prep bowls"], badge: "Service Strategist", badgeIcon: "🌶️",
       challenges: [
-        { type:"match", label:"PREPARATION MATCH", title:"Match the prep language", prompt:"Match each Malay preparation term with the closest general description used in this lesson. Regional and household usage can vary.", explanation:"Mayang commonly refers to thin slicing; racik can refer to cutting into small pieces or strips depending on context; potong serong means cutting on a diagonal. Culinary terms can vary regionally, so confirm the intended cut in a recipe or kitchen brief.",
-          pairs:[{left:"Potong serong",options:["Cut diagonally","Cut into fine cubes","Cut into leafy ribbons"],answer:"Cut diagonally"},{left:"Mayang",options:["Thinly slice","Deep-fry","Blend into a paste"],answer:"Thinly slice"},{left:"Racik (general usage)",options:["Cut or shred into small pieces/strips","Bake until dry","Cut only into rounds"],answer:"Cut or shred into small pieces/strips"}] },
-        { type:"sort", label:"STATION SET-UP", title:"Sort the station tasks", prompt:"Place each action into the best stage of preparation.", explanation:"A reliable mise en place starts with hygiene and inspection, then washing and preparation, followed by organising ingredients and tools. Keep raw and ready-to-eat foods separated and follow the recipe's actual sequence.",
-          items:[{id:"wash",text:"Wash hands and sanitise the station",cat:"before"},{id:"inspect",text:"Inspect and wash ingredients",cat:"before"},{id:"portion",text:"Cut and portion ingredients",cat:"prep"},{id:"arrange",text:"Arrange labelled bowls for cooking",cat:"ready"}],
-          categories:[{id:"before",name:"Before food prep"},{id:"prep",name:"Ingredient preparation"},{id:"ready",name:"Ready for cooking"}] },
-        { type:"sequence", label:"SERVICE READINESS", title:"Build a mise en place sequence", prompt:"Put these tasks into a sensible order before cooking begins.", explanation:"Start with personal and workstation hygiene, check and gather ingredients, prepare them according to the recipe, then organise portions and tools within reach. Follow your institution's food-safety SOPs.",
-          steps:[{id:"arrange",text:"Organise labelled ingredients and tools",order:4},{id:"hygiene",text:"Wash hands and prepare a clean station",order:1},{id:"gather",text:"Check recipe and gather ingredients",order:2},{id:"prep",text:"Wash, cut and portion ingredients",order:3}],correct:["hygiene","gather","prep","arrange"] },
-        { type:"transfer", label:"CHEF'S TRANSFER TEST", title:"The final service decision", prompt:"A dish needs diagonally cut long beans for the intended presentation. Which instruction best matches that cut?", explanation:"Potong serong means cutting on a diagonal. This final example checks whether you can apply the term to a new ingredient rather than merely repeat a memorised example.", options:["Potong serong","Mayang","Chiffonade","Brunoise"],answer:"Potong serong" }
+        { type:"sort", label:"PREPARATION LANGUAGE", title:"Sort the cut descriptions", prompt:"Match each term or description to the closest meaning used in this learning activity. Regional kitchen usage may vary.", explanation:"Potong serong means cutting diagonally. Mayang commonly refers to thin slicing. Racik may refer to cutting or shredding into small pieces or strips depending on ingredient and local usage; confirm the intended cut from the recipe or chef's brief.", items:[
+          {id:"serong",text:"Potong serong",cat:"diagonal"},{id:"mayang",text:"Mayang",cat:"thin"},{id:"racik",text:"Racik (general usage)",cat:"small"}],
+          categories:[{id:"diagonal",name:"Cut diagonally"},{id:"thin",name:"Thinly slice"},{id:"small",name:"Cut/shred into small pieces or strips"}] },
+        { type:"multi", label:"FOOD-SAFETY DECISION", title:"Choose safe preparation habits", prompt:"Select all the actions that support safe food preparation in a teaching kitchen.", explanation:"Clean hands and surfaces, separation of raw and ready-to-eat food, and using clean equipment help control contamination risks. Always follow current local food-safety rules and institutional SOPs.", options:["Wash hands at appropriate points","Use separate/clean equipment to prevent cross-contamination","Keep raw food separate from ready-to-eat food","Use the same unwashed board for raw poultry and salad","Taste food with the same spoon repeatedly"], answers:["Wash hands at appropriate points","Use separate/clean equipment to prevent cross-contamination","Keep raw food separate from ready-to-eat food"] },
+        { type:"truefalse", label:"TRUE OR FALSE", title:"Vegetable quality check", prompt:"True or false: cutting vegetables into very small pieces always means they should be cooked for the same time as larger pieces.", explanation:"False. Smaller pieces generally heat and cook faster than larger pieces. Adjust cooking time to the size, density, desired texture and cooking method rather than assuming one time fits all.", options:["True","False"], answer:"False" },
+        { type:"scenario", label:"SERVICE SCENARIO", title:"The last-minute order", prompt:"A new order arrives while you are preparing ingredients. You realise one ingredient is missing from your station. What is the best professional response?", explanation:"Pause and check the recipe or production plan, communicate the shortage to the responsible chef, and obtain an approved substitute or adjust the workflow. Do not silently improvise an ingredient change that could affect quality, allergens or food safety.", options:["Substitute any ingredient without telling anyone","Ignore the missing ingredient and serve the dish anyway","Inform the chef, verify an approved solution and update the plan","Leave the station unattended without communicating"], answer:"Inform the chef, verify an approved solution and update the plan" }
       ]
     }
   ];
 
   let missionIndex=0, challengeIndex=0, firstTryCorrect=0, answeredCount=0, streak=0, bestStreak=0;
   let tries=0, locked=false, soundOn=false, audioCtx=null, challengeState=null;
+  const TOTAL_CHALLENGES = MISSION_BANK.reduce((sum,m)=>sum+m.challenges.length,0);
   const missionStats = MISSION_BANK.map(m=>({id:m.id,name:m.name,correct:0,total:m.challenges.length,completed:false}));
   const badgeUnlocks = new Set();
 
@@ -81,14 +80,15 @@
     $("challengeType").textContent=challenge.label;$("challengeTitle").textContent=challenge.title;$("challengePrompt").textContent=challenge.prompt;
     $("feedbackBox").hidden=true;$("feedbackBox").className="feedback-box";
     $("checkButton").hidden=false;$("continueButton").hidden=true;
-    $("progressText").textContent=`Challenge ${missionIndex*4+challengeIndex+1} of 12`;
-    $("progressFill").style.width=`${((missionIndex*4+challengeIndex)/12)*100}%`;
-    $("scoreDisplay").textContent=`${Math.round((firstTryCorrect/12)*100)}%`;$("streakText").textContent=`✨ Streak: ${streak}`;
+    $("progressText").textContent=`Challenge ${MISSION_BANK.slice(0,missionIndex).reduce((n,m)=>n+m.challenges.length,0)+challengeIndex+1} of ${TOTAL_CHALLENGES}`;
+    $("progressFill").style.width=`${((MISSION_BANK.slice(0,missionIndex).reduce((n,m)=>n+m.challenges.length,0)+challengeIndex)/TOTAL_CHALLENGES)*100}%`;
+    $("scoreDisplay").textContent=`${Math.round((firstTryCorrect/TOTAL_CHALLENGES)*100)}%`;$("streakText").textContent=`✨ Streak: ${streak}`;
     const area=$("challengeArea");area.innerHTML="";
     if(challenge.type==="sort")renderSort(area,challenge);
     else if(challenge.type==="match")renderMatch(area,challenge);
     else if(challenge.type==="sequence")renderSequence(area,challenge);
-    else renderTransfer(area,challenge);
+    else if(challenge.type==="multi")renderMulti(area,challenge);
+    else if(challenge.type==="truefalse"||challenge.type==="mcq"||challenge.type==="spot"||challenge.type==="scenario"||challenge.type==="transfer")renderTransfer(area,challenge);
   }
 
   function renderSort(area,c){
@@ -133,16 +133,23 @@
     const list=document.createElement("div");list.className="match-list";
     c.options.forEach((opt,i)=>{const button=document.createElement("button");button.type="button";button.className="draggable-chip";button.style.textAlign="left";button.style.width="100%";button.textContent=String.fromCharCode(65+i)+". "+opt;button.addEventListener("click",()=>{if(locked)return;challengeState.answer=opt;list.querySelectorAll("button").forEach(b=>b.classList.remove("selected"));button.classList.add("selected");playTone(400,.06);});list.append(button);});area.append(list);
   }
+  function renderMulti(area,c){
+    challengeState.selectedMany=[];
+    const list=document.createElement("div");list.className="match-list";
+    c.options.forEach((opt,i)=>{const button=document.createElement("button");button.type="button";button.className="draggable-chip";button.style.textAlign="left";button.style.width="100%";button.setAttribute("aria-pressed","false");button.textContent="□  "+opt;button.addEventListener("click",()=>{if(locked)return;const idx=challengeState.selectedMany.indexOf(opt);if(idx>=0)challengeState.selectedMany.splice(idx,1);else challengeState.selectedMany.push(opt);button.classList.toggle("selected",idx<0);button.setAttribute("aria-pressed",String(idx<0));button.textContent=(idx<0?"☑  ":"□  ")+opt;playTone(400,.06);});list.append(button);});area.append(list);
+  }
   function evaluate(c){
-    if(c.type==="sort"){return c.items.every(item=>challengeState.placed[item.id]===item.cat);}
-    if(c.type==="match"){return c.pairs.every((p,i)=>challengeState.answers[i]===p.answer);}
-    if(c.type==="sequence"){return c.correct.every((id,i)=>challengeState.order[i]===id);}
+    if(c.type==="sort")return c.items.every(item=>challengeState.placed[item.id]===item.cat);
+    if(c.type==="match")return c.pairs.every((p,i)=>challengeState.answers[i]===p.answer);
+    if(c.type==="sequence")return c.correct.every((id,i)=>challengeState.order[i]===id);
+    if(c.type==="multi"){const chosen=[...(challengeState.selectedMany||[])].sort();const expected=[...c.answers].sort();return chosen.length===expected.length&&chosen.every((v,i)=>v===expected[i]);}
     return challengeState.answer===c.answer;
   }
   function hasCompleteResponse(c){
     if(c.type==="sort")return c.items.every(item=>challengeState.placed[item.id]);
     if(c.type==="match")return c.pairs.every((p,i)=>challengeState.answers[i]);
     if(c.type==="sequence")return challengeState.order.length===c.steps.length;
+    if(c.type==="multi")return (challengeState.selectedMany||[]).length>0;
     return Boolean(challengeState.answer);
   }
   $("checkButton").addEventListener("click",()=>{
@@ -152,7 +159,7 @@
     tries++;
     if(evaluate(c)){
       locked=true;answeredCount++;if(tries===1){firstTryCorrect++;missionStats[missionIndex].correct++;streak++;bestStreak=Math.max(bestStreak,streak);}else{streak=0;}
-      $("scoreDisplay").textContent=`${Math.round((firstTryCorrect/12)*100)}%`;$("streakText").textContent=`✨ Streak: ${streak}`;
+      $("scoreDisplay").textContent=`${Math.round((firstTryCorrect/TOTAL_CHALLENGES)*100)}%`;$("streakText").textContent=`✨ Streak: ${streak}`;
       showFeedback(true,tries===1?"Excellent — first-try mastery!":"Correct. You learned it through another attempt.",c.explanation,true);
       $("checkButton").hidden=true;$("continueButton").hidden=false;playTone(tries===1?740:620,.18);if(streak>0&&streak%3===0)confetti(28);
       if(challengeIndex===3){badgeUnlocks.add(MISSION_BANK[missionIndex].id);$("badgeName").textContent=MISSION_BANK[missionIndex].badge;missionStats[missionIndex].completed=true;confetti(16);}
@@ -165,7 +172,11 @@
     if(c.type==="sort")return "Check the defining shape or preparation description for each item. You can move items and check again.";
     if(c.type==="match")return "Look for the technique's defining action and intended result. Change any selection and check again.";
     if(c.type==="sequence")return "Think about hygiene first, then preparation, then organising the workstation for cooking. Reorder the steps and try again.";
-    return "Think about the culinary purpose described in the question. Select another option and try again.";
+    if(c.type==="multi")return "Select every action that meets the criterion, and leave out the actions that do not. You can change your selections and try again.";
+    if(c.type==="truefalse")return "Check the general culinary principle in the statement. Consider whether the wording is always accurate.";
+    if(c.type==="spot")return "Focus on the action that causes the biggest quality or process problem in this situation.";
+    if(c.type==="scenario")return "Choose the response that demonstrates communication, food safety and professional kitchen judgement.";
+    return "Think about the culinary principle described in the question. Select another option and try again.";
   }
   function showFeedback(good,title,body,canContinue){const box=$("feedbackBox");box.hidden=false;box.className=`feedback-box ${good?"good":"bad"}`;box.innerHTML=`<strong>${good?"✓":"↻"} ${escapeHtml(title)}</strong>${escapeHtml(body)}`;if(!good&&canContinue===false){$("continueButton").hidden=true;}}
   $("continueButton").addEventListener("click",()=>{
@@ -174,8 +185,8 @@
     renderChallenge();
   });
   function showResults(){
-    showScreen("results");$("progressFill").style.width="100%";const score=Math.round(firstTryCorrect/12*100);
-    $("finalMastery").textContent=`${score}%`;$("finalCorrect").textContent=`${firstTryCorrect}/12`;$("finalBadges").textContent=`${badgeUnlocks.size}/3`;
+    showScreen("results");$("progressFill").style.width="100%";const score=Math.round(firstTryCorrect/TOTAL_CHALLENGES*100);
+    $("finalMastery").textContent=`${score}%`;$("finalCorrect").textContent=`${firstTryCorrect}/${TOTAL_CHALLENGES}`;$("finalBadges").textContent=`${badgeUnlocks.size}/3`;
     $("resultsTitle").textContent=score>=85?"Kitchen legend in the making!":score>=60?"A strong shift, Chef!":"Your culinary journey has begun!";
     $("resultsLede").textContent=score>=85?"You demonstrated strong first-attempt understanding across the three culinary worlds.":score>=60?"You have built a foundation. Review the debrief and replay to strengthen your mastery.":"Every chef improves through deliberate practice. Review the concepts and try the quest again.";
     $("missionResults").innerHTML=MISSION_BANK.map((m,i)=>{const s=missionStats[i],pct=Math.round(s.correct/s.total*100);return `<div class="mission-result"><div><strong>${m.emoji} ${m.name}</strong><small>${s.correct} of ${s.total} challenges correct on first attempt · ${badgeUnlocks.has(m.id)?"Badge earned":"Badge not earned yet"}</small></div><b>${pct}%</b></div>`;}).join("");
